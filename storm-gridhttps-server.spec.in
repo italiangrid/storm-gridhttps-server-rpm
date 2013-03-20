@@ -32,7 +32,7 @@ The StoRM GridHTTPS component providing plain http(s) access and WebDAV access t
 
 %prep
 
-%setup -q -n storm-native-libs 
+%setup -q -n storm-gridhttps-server 
 
 %build
 mvn @@MVN_SETTINGS@@ -DskipTests -U package
