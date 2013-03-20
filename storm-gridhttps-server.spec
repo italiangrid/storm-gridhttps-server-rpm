@@ -1,53 +1,50 @@
-%define _sysconfdir /etc
-%define _javadir /usr/share/java
-%define _docdir /usr/share/doc
-%define default_user root
+%global pom_version @@POM_VERSION@@
+%global mvn_settings @@MVN_SETTINGS@@
 
-%define maven_repository ${MavenLocalRepository}
-%define maven_settings ${MavenSettings}
-%define maven_profile ${MavenProfile}
-%define conf_dir ${ConfDir}
-%define short_name ${ModuleName}
-%define log_dir ${LogDir}
-%define work_dir ${WorkDir} 
-
+Name: storm-gridhttps-server
+Version: 2.0.0
+Release: 1%{?dist}
 Summary: The StoRM GridHTTPS component
-Name: ${PackageName}
-Version: ${PackageVersion}
-Release: ${PackageRelease}%{?dist}
+
+Group: Development/Libraries
 License: Apache License 2.0
-Vendor: EMI
-URL: http://storm.forge.cnaf.infn.it
-Group: Application/Internet
-Packager: Michele Dibenedetto storm-support@lists.infn.it
+URL: https://github.com/italiangrid/storm-gridhttps-server
+Source: %{name}-%{version}.tar.gz
+BuildRoot: %{_tmppath}/%{name}-%{version}-%{release}-root-%(%{__id_u} -n)
 
 BuildArch: noarch
 BuildRequires: maven
 BuildRequires: java-1.6.0-openjdk-devel
 
-Requires: java-1.6.0-openjdk
-
-BuildRoot: %{_builddir}/%{name}-root
-AutoReqProv: yes
-Source: %{name}-%{version}.tar.gz
-
 %description
 The StoRM GridHTTPS component providing plain http(s) access and WebDAV access to StoRM managed files
 
+%define _sysconfdir /etc
+%define _javadir /usr/share/java
+%define _docdir /usr/share/doc
+%define default_user root
+
+%define conf_dir /etc/storm
+%define short_name gridhttps-server
+%define log_dir /var/log/storm
+%define work_dir /var/lib/storm
+
+
 %prep
 
-
-%setup -c
+%setup -q -n storm-native-libs 
 
 %build
-mvn %{maven_settings} %{maven_repository} -U -Dmaven.test.skip=true -P %{maven_profile} install
+mvn @@MVN_SETTINGS@@ -DskipTests -U package
 
 %install
 rm -rf $RPM_BUILD_ROOT
 mkdir -p $RPM_BUILD_ROOT
-test -d assembler/target/%{name}-fakeroot.dir && cp -vR assembler/target/%{name}-fakeroot.dir/* $RPM_BUILD_ROOT
+tar -C $RPM_BUILD_ROOT -xvzf target/%{name}.tar.gz
+#test -d assembler/target/%{name}-fakeroot.dir && cp -vR assembler/target/%{name}-fakeroot.dir/* $RPM_BUILD_ROOT
 
 %clean
+rm -rf $RPM_BUILD_ROOT
 
 %post
 #during an install, the value of the argument passed in is 1
