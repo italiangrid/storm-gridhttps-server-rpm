@@ -32,7 +32,6 @@ The StoRM GridHTTPS component providing plain http(s) access and WebDAV access t
 
 %prep
 
-#%setup -q -n storm-gridhttps-server 
 %setup -c
 
 %build
