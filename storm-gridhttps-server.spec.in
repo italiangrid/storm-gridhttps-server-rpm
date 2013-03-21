@@ -40,7 +40,7 @@ mvn @@MVN_SETTINGS@@ -DskipTests -U package
 %install
 rm -rf $RPM_BUILD_ROOT
 mkdir -p $RPM_BUILD_ROOT
-tar -C $RPM_BUILD_ROOT -xvzf target/%{name}-${@@POM_VERSION@@}-src.tar.gz
+tar -C $RPM_BUILD_ROOT -xvzf target/%{name}-@@POM_VERSION@@-src.tar.gz
 #test -d assembler/target/%{name}-fakeroot.dir && cp -vR assembler/target/%{name}-fakeroot.dir/* $RPM_BUILD_ROOT
 
 %clean
