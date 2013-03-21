@@ -9,8 +9,9 @@ Summary: The StoRM GridHTTPS component
 Group: Development/Libraries
 License: Apache License 2.0
 URL: https://github.com/italiangrid/storm-gridhttps-server
+BuildRoot: %{_builddir}/%{name}-root
+AutoReqProv: yes
 Source: %{name}-%{version}.tar.gz
-BuildRoot: %{_tmppath}/%{name}-%{version}-%{release}-root-%(%{__id_u} -n)
 
 BuildArch: noarch
 BuildRequires: maven
@@ -29,10 +30,10 @@ The StoRM GridHTTPS component providing plain http(s) access and WebDAV access t
 %define log_dir /var/log/storm
 %define work_dir /var/lib/storm
 
-
 %prep
 
-%setup -q -n storm-gridhttps-server 
+#%setup -q -n storm-gridhttps-server 
+%setup -c
 
 %build
 mvn @@MVN_SETTINGS@@ -DskipTests -U package
