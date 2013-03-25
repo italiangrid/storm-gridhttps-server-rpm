@@ -62,7 +62,7 @@ if [ "$1" = "0" ] ; then
    ls %{conf_dir}/%{short_name}/server.ini.bkp_* &> /dev/null
    if [ $? -eq 0 ]; then
       rm -f %{conf_dir}/%{short_name}/server.ini.bkp_*
-   fi 
+   fi
 #elif [ "$1" = "1" ] ; then
 fi                                                           
 
@@ -80,13 +80,6 @@ fi
 %dir %{_javadir}/%{name}                             
 %{_javadir}/%{name}/storm-gridhttps-server.jar
 %{_javadir}/%{name}/storm-gridhttps-webapp.war
-#%{_javadir}/%{name}/storagearea.jar
 
-#%attr(770,%{default_user},%{default_user}) %dir %{work_dir} 
-#%attr(774,%{default_user},%{default_user}) %dir %{log_dir} 
-
-%changelog
-* Fri Feb 23 2011 <Michele Dibenedetto> <michele.dibenedetto@cnaf.infn.it> %{version}-%{release}
--the storm-gridhtps-server is responsible provide http(s) access to files 
--the service verifies https calls by unspecting the received certificate and eventualy its VOMS extensions
--it interacts with storm-gridhttps-server using the Authorization Rest interface that it provides. Current version is compliant with storm-backend-server Authorization rest interface version 1.1.0
+%attr(770,%{default_user},%{default_user}) %dir %{work_dir} 
+%attr(774,%{default_user},%{default_user}) %dir %{log_dir}
