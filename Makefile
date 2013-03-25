@@ -57,7 +57,7 @@ rpm: prepare-spec
 		$(rpmbuild_dir)/SOURCES \
 		$(rpmbuild_dir)/SPECS \
 		$(rpmbuild_dir)/SRPMS
-	cp $(source_dir)/$(name).tar.gz $(rpmbuild_dir)/SOURCES/$(name)-$(rpm_version).tar.gz
+	cp $(source_dir)/$(name).tar.gz $(rpmbuild_dir)/SOURCES/$(name).tar.gz
 	rpmbuild --nodeps -v -ba $(spec) --define "_topdir $(rpmbuild_dir)"
 
 clean:
