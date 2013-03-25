@@ -6,7 +6,7 @@ provide WebDAV access to a Grid Storage Element. This component behaves also as 
 server when used in conjunction with StoRM SRM interface.
 The storm-gridhttps-server-rpm component is used to build StoRM GridHTTPs Server source code (from version 2.0.0).
 
-# Building
+## Building
 Required packages:
 
 * git
@@ -19,7 +19,7 @@ cd storm-gridhttps-server-rpm.git
 make all
 </pre>
 
-# Contact info
+## Contact info
 
 If you have problems, questions, ideas or suggestions, please contact us at
 the following URLs
