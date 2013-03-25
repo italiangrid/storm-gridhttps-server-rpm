@@ -74,12 +74,12 @@ fi
 %attr(640,root,root) %config %{conf_dir}/%{short_name}/server.ini.template
 %attr(755,%{default_user},%{default_user}) %{_sysconfdir}/init.d/%{name}
 
-#%dir %{_docdir}/%{name}-%{version}
-#%{_docdir}/%{name}-%{version}/LICENSE.txt
+%dir %{_docdir}/%{name}-%{version}
+%{_docdir}/%{name}-%{version}/LICENSE.txt
 
-#%dir %{_javadir}/%{name}                             
-#%{_javadir}/%{name}/server.jar
-#%{_javadir}/%{name}/webapp.war
+%dir %{_javadir}/%{name}                             
+%{_javadir}/%{name}/storm-gridhttps-server.jar
+%{_javadir}/%{name}/storm-gridhttps-webapp.war
 #%{_javadir}/%{name}/storagearea.jar
 
 #%attr(770,%{default_user},%{default_user}) %dir %{work_dir} 
