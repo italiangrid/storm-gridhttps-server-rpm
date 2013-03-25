@@ -74,16 +74,16 @@ fi
 %attr(640,root,root) %config %{conf_dir}/%{short_name}/server.ini.template
 %attr(755,%{default_user},%{default_user}) %{_sysconfdir}/init.d/%{name}
 
-%dir %{_docdir}/%{name}-%{version}
-%{_docdir}/%{name}-%{version}/LICENSE.txt
+#%dir %{_docdir}/%{name}-%{version}
+#%{_docdir}/%{name}-%{version}/LICENSE.txt
 
-%dir %{_javadir}/%{name}                             
-%{_javadir}/%{name}/server.jar
-%{_javadir}/%{name}/webapp.war
-%{_javadir}/%{name}/storagearea.jar
+#%dir %{_javadir}/%{name}                             
+#%{_javadir}/%{name}/server.jar
+#%{_javadir}/%{name}/webapp.war
+#%{_javadir}/%{name}/storagearea.jar
 
-%attr(770,%{default_user},%{default_user}) %dir %{work_dir} 
-%attr(774,%{default_user},%{default_user}) %dir %{log_dir} 
+#%attr(770,%{default_user},%{default_user}) %dir %{work_dir} 
+#%attr(774,%{default_user},%{default_user}) %dir %{log_dir} 
 
 %changelog
 * Fri Feb 23 2011 <Michele Dibenedetto> <michele.dibenedetto@cnaf.infn.it> %{version}-%{release}
