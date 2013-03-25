@@ -1,4 +1,4 @@
-storm-gridhttps-server-rpm
+StoRM-GridHTTPs-Server-rpm
 ==========================
 
 StoRM GridHTTPs Server exposes a standard WebDAV interface on top of StoRM BackEnd Service to 
@@ -6,7 +6,7 @@ provide WebDAV access to a Grid Storage Element. This component behaves also as 
 server when used in conjunction with StoRM SRM interface.
 The storm-gridhttps-server-rpm component is used to build StoRM GridHTTPs Server source code (from version 2.0.0).
 
-## Building
+# Building
 Required packages:
 
 * git
