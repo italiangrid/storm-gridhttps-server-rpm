@@ -82,4 +82,4 @@ fi
 %{_javadir}/%{name}/storm-gridhttps-webapp.war
 
 %attr(770,%{default_user},%{default_user}) %dir %{work_dir} 
-%attr(774,%{default_user},%{default_user}) %dir %{log_dir}
+%attr(777,%{default_user},%{default_user}) %dir %{log_dir}
