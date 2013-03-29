@@ -19,6 +19,11 @@ cd storm-gridhttps-server-rpm.git
 make all
 </pre>
 
+If you want to build a different branch of storm-gridhttps-server launch make specifying that branch as value for tag variable:
+<pre>
+make tag=<branch-name> all
+</pre>
+
 ## Contact info
 
 If you have problems, questions, ideas or suggestions, please contact us at
