@@ -24,7 +24,7 @@ If you want to build a different branch of storm-gridhttps-server launch make sp
 make tag=<branch-name> all
 </pre>
 
-## Contact information
+## Contact informations
 
 If you have problems, questions, ideas or suggestions, please contact us at
 the following URLs
