@@ -1,6 +1,6 @@
 name=storm-gridhttps-server
 
-tag=one-app
+tag=master
 
 # the Github repo
 git=git://github.com/italiangrid/storm-gridhttps-server.git
