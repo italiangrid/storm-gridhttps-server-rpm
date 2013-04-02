@@ -21,7 +21,7 @@ make all
 
 If you want to build a different branch of storm-gridhttps-server launch make specifying that branch as value for tag variable:
 <pre>
-make tag=<branch-name> all
+make tag=branch-name all
 </pre>
 
 ## Contact informations
