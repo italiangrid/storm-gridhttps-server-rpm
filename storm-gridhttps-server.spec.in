@@ -87,4 +87,4 @@ fi
 %dir %{_javadir}/%{name}/lib
 %{_javadir}/%{name}/lib/*.jar
 
-%attr(777,%{default_user},%{default_user}) %dir %{log_dir}
+%attr(755,%{default_user},%{default_user}) %dir %{log_dir}
