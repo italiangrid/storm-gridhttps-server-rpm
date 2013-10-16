@@ -15,7 +15,7 @@ Required packages:
 Build commands:
 <pre>
 git clone https://github.com/enricovianello/storm-gridhttps-server-rpm.git
-cd storm-gridhttps-server-rpm.git
+cd storm-gridhttps-server-rpm
 make all
 </pre>
 
