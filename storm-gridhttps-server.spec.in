@@ -75,7 +75,7 @@ fi
 %defattr(-,%{default_user},%{default_user})
 %dir %{conf_dir}/
 %dir %{conf_dir}/%{short_name}/
-%config %{conf_dir}/%{short_name}/logback.xml
+%config %{conf_dir}/%{short_name}/logging.xml
 %attr(640,root,root) %config %{conf_dir}/%{short_name}/server.ini.template
 %attr(755,%{default_user},%{default_user}) %{_sysconfdir}/init.d/%{name}
 
