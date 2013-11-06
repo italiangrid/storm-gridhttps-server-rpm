@@ -34,7 +34,8 @@ The StoRM GridHTTPS component providing plain http(s) access and WebDAV access t
 %define _sysconfdir /etc
 %define _javadir /usr/share/java
 %define _docdir /usr/share/doc
-%define default_user root
+%define default_user gridhttps
+%define storm_user storm
 
 %define conf_dir /etc/storm
 %define short_name gridhttps-server
@@ -89,4 +90,4 @@ fi
 %dir %{_javadir}/%{name}/lib
 %{_javadir}/%{name}/lib/*.jar
 
-%attr(755,%{default_user},%{default_user}) %dir %{log_dir}
+%attr(755,%{storm_user},%{storm_user}) %dir %{log_dir}
