@@ -1,16 +1,21 @@
+## Turn off meaningless jar repackaging 
+%define __jar_repack 0
+
+%global base_version 3.0.0
+
 %global pom_version @@POM_VERSION@@
 %global mvn_settings @@MVN_SETTINGS@@
 
 %if %{?build_number:1}%{!?build_number:0}
-%define package_version %{pom_version}.build%{build_number}
+%define package_version %{base_version}.build%{build_number}
 %else
-%define package_version %{pom_version}
+%define package_version %{base_version}
 %endif
 
 Name: storm-gridhttps-server
 Version: %{package_version}
 Release: 1%{?dist}
-Summary: The StoRM GridHTTPS component
+Summary: The StoRM GridHTTPS server
 
 Group: Development/Libraries
 License: Apache License 2.0
@@ -32,7 +37,8 @@ The StoRM GridHTTPS component providing plain http(s) access and WebDAV access t
 %define _sysconfdir /etc
 %define _javadir /usr/share/java
 %define _docdir /usr/share/doc
-%define default_user root
+%define default_user gridhttps
+%define storm_user storm
 
 %define conf_dir /etc/storm
 %define short_name gridhttps-server
@@ -68,14 +74,13 @@ if [ "$1" = "0" ] ; then
    if [ $? -eq 0 ]; then
       rm -f %{conf_dir}/%{short_name}/server.ini.bkp_*
    fi
-#elif [ "$1" = "1" ] ; then
 fi                                                           
 
 %files
 %defattr(-,%{default_user},%{default_user})
 %dir %{conf_dir}/
 %dir %{conf_dir}/%{short_name}/
-%config %{conf_dir}/%{short_name}/logback.xml
+%config %{conf_dir}/%{short_name}/logging.xml
 %attr(640,root,root) %config %{conf_dir}/%{short_name}/server.ini.template
 %attr(755,%{default_user},%{default_user}) %{_sysconfdir}/init.d/%{name}
 
@@ -87,4 +92,4 @@ fi
 %dir %{_javadir}/%{name}/lib
 %{_javadir}/%{name}/lib/*.jar
 
-%attr(777,%{default_user},%{default_user}) %dir %{log_dir}
+%attr(755,%{storm_user},%{storm_user}) %dir %{log_dir}
