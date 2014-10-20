@@ -60,10 +60,12 @@ tar -C $RPM_BUILD_ROOT -xvzf target/%{name}.tar.gz
 rm -rf $RPM_BUILD_ROOT
 
 %post
+
 #during an install, the value of the argument passed in is 1
 #during an upgrade, the value of the argument passed in is 2
 
 %preun
+
 #during an upgrade, the value of the argument passed in is 1
 #during an uninstall, the value of the argument passed in is 0
 if [ "$1" = "0" ] ; then
