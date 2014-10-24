@@ -1,7 +1,7 @@
 ## Turn off meaningless jar repackaging 
 %define __jar_repack 0
 
-%global base_version 3.0.2
+%global base_version 3.0.0
 
 %global pom_version @@POM_VERSION@@
 %global mvn_settings @@MVN_SETTINGS@@
