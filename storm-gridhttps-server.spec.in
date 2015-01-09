@@ -1,7 +1,7 @@
 ## Turn off meaningless jar repackaging 
 %define __jar_repack 0
 
-%global base_version 3.0.0
+%global base_version 3.0.2
 
 %global pom_version @@POM_VERSION@@
 %global mvn_settings @@MVN_SETTINGS@@
@@ -26,7 +26,7 @@ BuildRoot: %{_tmppath}/%{name}-%{version}-%{release}-root-%(%{__id_u} -n)
 
 BuildArch: noarch
 
-BuildRequires: maven
+BuildRequires: apache-maven
 BuildRequires: java-1.6.0-openjdk-devel
 
 Requires: java-1.6.0-openjdk
@@ -60,10 +60,12 @@ tar -C $RPM_BUILD_ROOT -xvzf target/%{name}.tar.gz
 rm -rf $RPM_BUILD_ROOT
 
 %post
+
 #during an install, the value of the argument passed in is 1
 #during an upgrade, the value of the argument passed in is 2
 
 %preun
+
 #during an upgrade, the value of the argument passed in is 1
 #during an uninstall, the value of the argument passed in is 0
 if [ "$1" = "0" ] ; then
